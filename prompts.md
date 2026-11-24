@@ -62,3 +62,22 @@ This document maintains a chronological record of all user prompts and instructi
    - Configured the salon color theme (charcoal, canvas, gold, white, muted grey).
    - Created routing and skeleton placeholder pages for all 7 screens.
    - Established the bilingual i18n context (`en.json` and `gu.json`) and header language toggle.
+
+
+---
+
+## Prompt 3: English Only, Separate Frontend/Backend Dirs, New Bespoke Theme, High Commit Frequency, Step 2
+**Date & Time**: 2026-11-24T17:05:04+05:30  
+**Status**: In Progress  
+
+### Prompt Content:
+> the website should solely be in english, now step 2, also do classify frontend in a separate frontend directory and backend in backend on, the color theme is very generic, try something different and keep commiting after every samll change i need more commits
+
+### Agent Actions Planned:
+1. Reorganize repository structure into separate `frontend/` and `backend/` directories.
+2. Remove bilingual switcher and Gujarati dictionary; standardize entirely on refined English.
+3. Replace generic gray/gold theme with a luxury Velvet Obsidian & Champagne Rose Gold design system with glassmorphic cards and warm bronze accents.
+4. Implement Centralized Queue Engine and Local Synchronization Layer.
+5. Fully implement Screen 1 (Home) with live barber cards, status indicators, and queue metrics.
+6. Fully implement Screen 2 (Join Queue) with 10-digit validation, 3-service limit, barber selection, live duration/price calculation, and token generation.
+7. Execute atomic git commits after each individual change and push frequently.

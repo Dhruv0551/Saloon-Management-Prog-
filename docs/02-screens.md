@@ -1,6 +1,6 @@
 # Application Screens Specification — Salon Queue Management System
 
-This document specifies the user interface, interactions, layouts, and states for all seven screens in the system. All screens adhere to the premium dark charcoal (`#1F2937`), dark background (`#111827`), and elegant gold (`#D4A017`) design system with full bilingual English/Gujarati support.
+This document specifies the user interface, interactions, layouts, and states for all seven screens in the system. All screens adhere to the premium dark charcoal (`#1F2937`), dark background (`#111827`), and elegant gold (`#D4A017`) design system with full bilingual English/Gujarati support. All documentation text below is provided in English.
 
 ---
 
@@ -13,8 +13,8 @@ This document specifies the user interface, interactions, layouts, and states fo
 
 ### 2. UI Elements (Top-to-Bottom Order)
 1. **Header / Navigation Bar**:
-   - Salon Brand Logo & Name ("Luxe Salon / લક્સ સલૂન").
-   - Language Selector toggle (English / ગુજરાતી).
+   - Salon Brand Logo & Name ("Luxe Salon").
+   - Language Selector toggle (English / Gujarati).
    - Staff Portal Quick-Links icon/menu (links to `/reception`, `/admin`, `/display`).
 2. **Salon Status Banner**:
    - Operational Badge: Green "Open Now" or Red "Closed / Queue Full".
@@ -33,8 +33,8 @@ This document specifies the user interface, interactions, layouts, and states fo
        - **On Break (Muted Grey)**: Temporarily unavailable.
      - Current serving token (if busy).
 5. **Call-to-Action Section**:
-   - Prominent, high-contrast Gold button: **"Join Queue" / "કતારમાં જોડાઓ"** (navigates to `/join`).
-   - Secondary button: **"Check My Status" / "મારી સ્થિતિ જુઓ"** (modal or input prompt for existing token / phone number lookup).
+   - Prominent, high-contrast Gold button: **"Join Queue"** (navigates to `/join`).
+   - Secondary button: **"Check My Status"** (modal or input prompt for existing token / phone number lookup).
 6. **Footer**:
    - Salon address, contact phone number, and opening hours summary.
 
@@ -66,16 +66,16 @@ This document specifies the user interface, interactions, layouts, and states fo
 ### 2. UI Elements (Top-to-Bottom Order)
 1. **Header**:
    - Back button (`< Back to Home`).
-   - Title: "Join the Salon Queue" / "સલૂન કતારમાં જોડાઓ".
+   - Title: "Join the Salon Queue".
    - Subtitle: "Quick, hassle-free digital check-in".
    - Language selector.
 2. **Customer Information Form**:
    - **Full Name**: Text input field with clear placeholder.
    - **Phone Number**: 10-digit numeric input with Indian phone prefix (+91) indicator and inline validation icon.
 3. **Service Selection Section**:
-   - Section heading with counter: "Select Services (Max 3)" / "સેવાઓ પસંદ કરો (મહત્તમ ૩)".
+   - Section heading with counter: "Select Services (Max 3)".
    - Service Cards Grid (Haircut, Beard Trim, Hair Spa, Hair Wash, Facial, etc.):
-     - Service Name (Bilingual).
+     - Service Name.
      - Estimated Duration (e.g., "30 mins").
      - Price in INR (e.g., "₹250").
      - Checkbox / Selected highlight with gold border and checkmark icon.
@@ -89,11 +89,11 @@ This document specifies the user interface, interactions, layouts, and states fo
    - Warning banner if selected barber is currently "On Break" ("This barber is on break. Your wait time may be longer.").
 5. **Live Queue Summary Card (Sticky or Dynamic Bottom Container)**:
    - Selected Services list tags.
-   - Total Estimated Service Duration: $\sum \text{duration}$ in minutes.
-   - Total Estimated Price: $\sum \text{price}$ in ₹.
+   - Total Estimated Service Duration: sum of selected service durations in minutes.
+   - Total Estimated Price: sum of selected service prices in INR.
    - Estimated Initial Wait Time: Calculated based on queue backlog.
 6. **Confirmation CTA Button**:
-   - Large Gold Button: **"Confirm & Get Token" / "ખાતરી કરો અને ટોકન મેળવો"** (min height 48px).
+   - Large Gold Button: **"Confirm & Get Token"** (min height 48px).
 
 ### 3. Interactions & Button Behaviors
 - **Phone Validation**: Restricts input to 10 digits; rejects non-numeric characters; validates against active queue entries to prevent duplicates.
@@ -139,13 +139,13 @@ This document specifies the user interface, interactions, layouts, and states fo
    - List of booked services with individual prices and durations.
    - Total amount payable at salon counter.
 5. **Stage Notification Banners (Dynamic)**:
-   - **Normal Waiting (Position > 2)**: "Relax! We'll alert you when your turn approaches."
-   - **Stage 1 Alert (Position = 2)**: Amber banner: **"Start heading to the salon! You're next in line." / "કૃપા કરીને સલૂન આવવાનું શરૂ કરો! તમારો વારો ટૂંક સમયમાં છે."**
-   - **Stage 2 Alert (`status === 'Called'`)**: Full-screen modal / takeover banner: **"It's Your Turn! Please proceed to Chair [Barber Name]." / "તમારો વારો આવી ગયો છે! કૃપા કરીને આગળ વધો."** with audio chime/vibration.
+   - **Normal Waiting (Position > 2)**: "Relax! We will alert you when your turn approaches."
+   - **Stage 1 Alert (Position = 2)**: Amber banner: **"Start heading to the salon! You're next in line."**
+   - **Stage 2 Alert (`status === 'Called'`)**: Full-screen modal / takeover banner: **"It's Your Turn! Please proceed to Chair [Barber Name]."** with audio chime/vibration.
    - **In Chair (`status === 'In Chair'`)**: "Service in progress with [Barber Name]. Enjoy your grooming!"
    - **Completed (`status === 'Done'`)**: "Thank you for visiting Luxe Salon! See you soon."
 6. **Actions**:
-   - **"Cancel My Spot" / "મારું સ્થાન રદ કરો"** button (subtle red outline button).
+   - **"Cancel My Spot"** button (subtle red outline button).
    - Confirmation Dialog before cancellation: "Are you sure? You will lose your position in line."
 
 ### 3. Interactions & Button Behaviors
@@ -176,7 +176,7 @@ This document specifies the user interface, interactions, layouts, and states fo
    - Reception Header with Live Clock (HH:MM:SS) and date.
    - Language selector.
    - Quick Summary Pills: Total Waiting, Total In Chair, Completed Today.
-   - **"+ Add Walk-in" / "+ વોક-ઇન ઉમેરો"** prominent gold button.
+   - **"+ Add Walk-in"** prominent gold button.
    - Queue Open/Closed toggle quick status.
 2. **Barber Chairs Section (Horizontal Row of 3 Cards)**:
    - One card for each barber (Ravi, Amit, Imran):
@@ -236,7 +236,7 @@ This document specifies the user interface, interactions, layouts, and states fo
 
 ### 2. UI Elements (Top-to-Bottom Order)
 1. **Header**:
-   - Barber Name ("Ravi's Chair" / "રવિ ની ચેર").
+   - Barber Name ("Ravi's Chair").
    - Status Toggle: **Available (Green)** vs. **On Break (Grey/Amber)**.
    - Language selector.
 2. **Current Customer Focus Card**:
@@ -251,11 +251,11 @@ This document specifies the user interface, interactions, layouts, and states fo
      - Prompt: "Ready for your next customer?"
 3. **Primary Action Buttons (Massive Touch Targets)**:
    - If empty & eligible customer waiting:
-     - **"Call Next Customer" / "આગળના ગ્રાહકને બોલાવો"** (Full-width Green button).
+     - **"Call Next Customer"** (Full-width Green button).
    - If customer is `Called` and sits in chair:
-     - **"Start Service" / "સેવા શરૂ કરો"** (Changes status to `In Chair`, starts stopwatch).
+     - **"Start Service"** (Changes status to `In Chair`, starts stopwatch).
    - If customer is `In Chair`:
-     - **"Done / Complete" / "પૂર્ણ થયું"** (Full-width Gold button; finishes service, marks `Done`, sets chair free).
+     - **"Done / Complete"** (Full-width Gold button; finishes service, marks `Done`, sets chair free).
 4. **Upcoming Customer Preview**:
    - Next assigned customer card (Token, Name, Services, Estimated wait).
    - Lets barber mentally prepare tools for the next haircut/treatment.
@@ -288,7 +288,7 @@ This document specifies the user interface, interactions, layouts, and states fo
 1. **Top Header Bar**:
    - Luxe Salon Brand Logo & Name in high-contrast gold.
    - Current Real-time Clock (e.g., "04:30 PM") and Date.
-   - Bilingual rolling ticker / subtitle ("Welcome to Luxe Salon • લક્સ સલૂનમાં આપનું સ્વાગત છે").
+   - Rolling subtitle ("Welcome to Luxe Salon").
 2. **Barber Serving Grid (Main Viewport, Left 60% or Top Row)**:
    - 3 Large Barber Station Cards (Ravi, Amit, Imran):
      - Barber Photo/Avatar and Name.
@@ -299,7 +299,7 @@ This document specifies the user interface, interactions, layouts, and states fo
      - Status Indicator: "Serving" (Green/Gold) or "Available" or "On Break".
      - **New Call Animation**: If a token was called within the last 15 seconds, the card pulses with a vibrant gold border and glowing badge.
 3. **Upcoming Queue Section (Right 40% or Bottom Row)**:
-   - Heading: "Next in Line / આગળનો વારો" (Upcoming 5 Tokens).
+   - Heading: "Next in Line" (Upcoming 5 Tokens).
    - 5 Horizontal Token Cards:
      - Token Number (e.g., `S-15`, `S-16`, `S-17`, `S-18`, `S-19`).
      - Preferred Barber (or "Any").
@@ -334,7 +334,7 @@ This document specifies the user interface, interactions, layouts, and states fo
 
 ### 2. UI Elements (Top-to-Bottom Order)
 1. **Admin Header**:
-   - Dashboard Title: "Salon Management & Settings" / "સલૂન વ્યવસ્થાપન અને સેટિંગ્સ".
+   - Dashboard Title: "Salon Management & Settings".
    - Language selector.
    - Quick Navigation Tabs:
      - Tab 1: **Queue Controls & Shifts**
@@ -353,10 +353,10 @@ This document specifies the user interface, interactions, layouts, and states fo
      - Real-time Status Override (Available / On Break).
 3. **Tab 2: Service Catalog Management**:
    - **Service List Table**:
-     - Columns: Service Name (English), Service Name (Gujarati), Duration (mins), Price (₹), Status (Active/Inactive), Actions.
+     - Columns: Service Name (English), Service Name (Gujarati), Duration (mins), Price (INR), Status (Active/Inactive), Actions.
    - **Add / Edit Service Modal**:
      - English Name input (e.g., "Haircut").
-     - Gujarati Name input (e.g., "વાળ કાપવા").
+     - Gujarati Name input (e.g., "Haircut in Gujarati").
      - Duration input in minutes (e.g., 30).
      - Price input in INR (e.g., 250).
      - Active toggle: Turning off a service immediately removes it from the customer Join Queue screen.

@@ -1,4 +1,4 @@
-# Salon Queue Management System (Luxe Salon / લક્સ સલૂન)
+# Salon Queue Management System (Luxe Salon)
 
 **Live demo:** [Deployment Pending — To be deployed in Step 9]
 

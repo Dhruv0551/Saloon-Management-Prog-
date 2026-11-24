@@ -43,3 +43,22 @@ This document maintains a chronological record of all user prompts and instructi
 3. Created `docs/03-flows-rules.md` establishing remote/walk-in customer workflows, strict non-reversible state machine, FIFO & preference assignment algorithms, dynamic wait-time math, no-show/cancellation rules, and 14 comprehensive test cases.
 4. Created `AGENTS.md` containing project summary, tech stack, coding/design guidelines, proposed dual-mode storage & synchronization architecture, and strict agent working rules.
 5. Prepared folder structure and staged files for git commit and remote push.
+
+
+---
+
+## Prompt 2: English-Only Documentation & Approval to Proceed
+**Date & Time**: 2026-11-24T16:44:26+05:30  
+**Status**: Completed  
+
+### Prompt Content:
+> go further and write the documentation in english only
+
+### Agent Actions Taken:
+1. Updated all documentation (`docs/01-brief.md`, `docs/02-screens.md`, `docs/03-flows-rules.md`, `AGENTS.md`, and `README.md`) to be strictly in English only.
+2. Commenced Step 1 of the development roadmap:
+   - Summarized the application in 8 bullet points and noted clarifications.
+   - Initialized React + Vite + Tailwind CSS project with React Router DOM and Lucide React.
+   - Configured the salon color theme (charcoal, canvas, gold, white, muted grey).
+   - Created routing and skeleton placeholder pages for all 7 screens.
+   - Established the bilingual i18n context (`en.json` and `gu.json`) and header language toggle.

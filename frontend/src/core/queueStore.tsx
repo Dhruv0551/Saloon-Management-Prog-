@@ -23,6 +23,10 @@ interface QueueContextType {
   cancelQueueEntry: (customerId: string, reason?: string) => void;
   markNoShow: (customerId: string) => void;
   toggleBarberBreak: (barberId: BarberId) => void;
+  toggleBarberActiveToday: (barberId: BarberId) => void;
+  toggleServiceActive: (serviceId: string) => void;
+  addServiceItem: (service: Omit<ServiceItem, 'id'>) => void;
+  resetDailyQueue: () => void;
   toggleQueueOpen: () => void;
   getEstimatedWait: (preferredBarber: BarberId, customerId?: string) => number;
 }
@@ -347,6 +351,59 @@ export const QueueProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     });
   };
 
+  const toggleBarberActiveToday = (barberId: BarberId) => {
+    const updatedBarbers = state.barbers.map(b => {
+      if (b.id === barberId) {
+        return { ...b, activeToday: !b.activeToday };
+      }
+      return b;
+    });
+
+    updateStateAndBroadcast({
+      ...state,
+      barbers: updatedBarbers
+    });
+  };
+
+  const toggleServiceActive = (serviceId: string) => {
+    const updatedServices = state.services.map(s => {
+      if (s.id === serviceId) {
+        return { ...s, active: !s.active };
+      }
+      return s;
+    });
+
+    updateStateAndBroadcast({
+      ...state,
+      services: updatedServices
+    });
+  };
+
+  const addServiceItem = (service: Omit<ServiceItem, 'id'>) => {
+    const newService: ServiceItem = {
+      ...service,
+      id: `service-${Date.now()}`
+    };
+
+    updateStateAndBroadcast({
+      ...state,
+      services: [...state.services, newService]
+    });
+  };
+
+  const resetDailyQueue = () => {
+    updateStateAndBroadcast({
+      ...state,
+      queue: [],
+      dailyStats: {
+        totalServed: 0,
+        avgWaitMinutes: 0,
+        noShowCount: 0,
+        cancelCount: 0
+      }
+    });
+  };
+
   const toggleQueueOpen = () => {
     updateStateAndBroadcast({
       ...state,
@@ -365,6 +422,10 @@ export const QueueProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         cancelQueueEntry,
         markNoShow,
         toggleBarberBreak,
+        toggleBarberActiveToday,
+        toggleServiceActive,
+        addServiceItem,
+        resetDailyQueue,
         toggleQueueOpen,
         getEstimatedWait
       }}

@@ -1,6 +1,6 @@
 # Salon Queue Management System (Luxe Salon)
 
-**Live demo:** [https://saloon-management-prog.vercel.app](https://saloon-management-prog.vercel.app) *(Deployable to Vercel via GitHub integration)*
+**Live demo:** [https://frontend-phi-eight-27.vercel.app/](https://frontend-phi-eight-27.vercel.app/) *(Deployable to Vercel via GitHub integration)*
 
 **Hosted on:** Vercel (Frontend SPA) & Render / Railway (Real-time Synchronization Service)
 

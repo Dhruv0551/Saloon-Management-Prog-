@@ -18,12 +18,12 @@ export const ThemeCard: React.FC<ThemeCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`bg-charcoal rounded-2xl border transition-all duration-200 p-5 ${
+      className={`bg-obsidian-card rounded-2xl border transition-all duration-300 p-6 shadow-card-glow ${
         highlighted
-          ? 'border-gold shadow-[0_0_20px_rgba(212,160,23,0.25)]'
-          : 'border-gray-800'
+          ? 'border-champagne/70 shadow-luxury-glow ring-1 ring-champagne/30'
+          : 'border-obsidian-border hover:border-champagne/30'
       } ${
-        hoverEffect ? 'hover:border-gold/60 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer' : ''
+        hoverEffect ? 'hover:-translate-y-1 hover:shadow-luxury cursor-pointer' : ''
       } ${className}`}
     >
       {children}

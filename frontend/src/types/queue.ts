@@ -6,24 +6,26 @@ export type BarberStatus = 'free' | 'busy' | 'break';
 
 export interface ServiceItem {
   id: string;
-  nameEn: string;
-  nameGu: string;
+  name: string;
   durationMinutes: number;
   priceINR: number;
   active: boolean;
-  category?: string;
+  category: 'Hair' | 'Beard' | 'Spa & Treatments' | 'Grooming';
+  description?: string;
+  icon?: string;
 }
 
 export interface Barber {
-  id: string;
+  id: BarberId;
   name: string;
+  specialty: string;
   status: BarberStatus;
   currentCustomerId?: string;
   currentCustomerName?: string;
   currentToken?: string;
   serviceStartTime?: string;
   activeToday: boolean;
-  photoUrl?: string;
+  avatar: string;
 }
 
 export interface CustomerQueueEntry {

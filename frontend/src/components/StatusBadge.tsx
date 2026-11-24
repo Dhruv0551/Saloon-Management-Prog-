@@ -14,24 +14,24 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, className = ''
   const getStyle = () => {
     switch (status) {
       case 'Waiting':
-        return 'bg-blue-950/60 text-blue-400 border-blue-800/60';
+        return 'bg-blue-950/40 text-blue-300 border-blue-800/50';
       case 'Called':
-        return 'bg-gold/20 text-gold-light border-gold font-bold shadow-[0_0_12px_rgba(212,160,23,0.35)]';
+        return 'bg-champagne/20 text-champagne-light border-champagne font-bold shadow-[0_0_15px_rgba(229,195,146,0.3)]';
       case 'In Chair':
-        return 'bg-emerald-950/70 text-emerald-400 border-emerald-700/70';
+        return 'bg-emerald-950/50 text-emerald-400 border-emerald-700/50';
       case 'Done':
-        return 'bg-gray-800 text-gray-300 border-gray-700';
+        return 'bg-obsidian-border text-gray-300 border-gray-700';
       case 'Cancelled':
       case 'No-show':
-        return 'bg-red-950/60 text-red-400 border-red-800/60';
+        return 'bg-rose-950/40 text-rose-400 border-rose-800/50';
       case 'free':
-        return 'bg-emerald-950/60 text-emerald-400 border-emerald-700/60';
+        return 'bg-emerald-950/40 text-emerald-400 border-emerald-700/50';
       case 'busy':
-        return 'bg-amber-950/60 text-amber-400 border-amber-700/60';
+        return 'bg-amber-950/40 text-amber-300 border-amber-700/50';
       case 'break':
-        return 'bg-gray-800 text-gray-400 border-gray-700';
+        return 'bg-obsidian-surface text-gray-400 border-obsidian-border';
       default:
-        return 'bg-gray-800 text-gray-300 border-gray-700';
+        return 'bg-obsidian-surface text-gray-300 border-obsidian-border';
     }
   };
 
@@ -52,11 +52,11 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, className = ''
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${getStyle()} ${
+      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${getStyle()} ${
         pulsing ? 'animate-pulse' : ''
       } ${className}`}
     >
-      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
+      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-90" />
       {t(getLabelKey())}
     </span>
   );

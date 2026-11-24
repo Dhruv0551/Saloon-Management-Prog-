@@ -233,6 +233,46 @@ export function isPhoneActiveInQueue(state: SalonState, phone: string): Customer
 }
 
 /**
+ * Checks if online joining is currently allowed based on salon open state
+ * and the 30-minute auto-cutoff rule before closing time.
+ */
+export function isOnlineJoiningAllowed(state: SalonState): { allowed: boolean; reason?: string } {
+  if (!state.isOpen) {
+    return {
+      allowed: false,
+      reason: 'Online queue registration is currently closed. Walk-ins are accepted directly at our reception desk.'
+    };
+  }
+
+  try {
+    const now = new Date();
+    const [closeHour, closeMinute] = state.closeTime.split(':').map(Number);
+    const closingDate = new Date();
+    closingDate.setHours(closeHour, closeMinute, 0, 0);
+
+    const cutoffDate = new Date(closingDate.getTime() - 30 * 60 * 1000);
+
+    if (now >= closingDate) {
+      return {
+        allowed: false,
+        reason: 'The salon is closed for today. Walk-ins will reopen tomorrow morning at ' + state.openTime + ' AM.'
+      };
+    }
+
+    if (now >= cutoffDate) {
+      return {
+        allowed: false,
+        reason: 'Online queue registration automatically closes 30 minutes before salon closing time (' + state.closeTime + '). Walk-ins remain accepted at reception until closing.'
+      };
+    }
+  } catch (e) {
+    console.error('Error calculating closing cutoff', e);
+  }
+
+  return { allowed: true };
+}
+
+/**
  * Generates the next sequential token (e.g. S-15)
  */
 export function generateNextToken(queue: CustomerQueueEntry[]): string {

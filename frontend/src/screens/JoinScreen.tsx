@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useQueue } from '../core/queueStore';
 import { BarberId, ServiceItem } from '../types/queue';
+import { isOnlineJoiningAllowed } from '../core/queueEngine';
 import { ThemeCard } from '../components/ThemeCard';
 import { StatusBadge } from '../components/StatusBadge';
 import {
@@ -22,22 +23,26 @@ export const JoinScreen: React.FC = () => {
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedServices, setSelectedServices] = useState<ServiceItem[]>([state.services[0]]); // Haircut selected by default
+  const activeServices = state.services.filter(s => s.active);
+  const [selectedServices, setSelectedServices] = useState<ServiceItem[]>(() => 
+    activeServices.length > 0 ? [activeServices[0]] : []
+  );
   const [preferredBarber, setPreferredBarber] = useState<BarberId>('any');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // If online queue is toggled closed by admin
-  if (!state.isOpen) {
+  // Check online registration availability (salon open switch and 30-min closing cutoff)
+  const queueStatusCheck = isOnlineJoiningAllowed(state);
+  if (!queueStatusCheck.allowed) {
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center space-y-6">
         <div className="w-16 h-16 rounded-full bg-rose-950/60 border border-rose-800/60 text-rose-400 mx-auto flex items-center justify-center">
           <AlertCircle className="w-8 h-8" />
         </div>
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-white font-serif">Online Queue Closed</h1>
+          <h1 className="text-3xl font-bold text-white font-serif">Online Registration Unavailable</h1>
           <p className="text-gray-400 text-sm leading-relaxed max-w-md mx-auto">
-            Online queue registration is currently closed for today. Walk-ins are warmly accepted directly at our reception desk.
+            {queueStatusCheck.reason}
           </p>
         </div>
         <div className="pt-2">
@@ -210,7 +215,7 @@ export const JoinScreen: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {state.services.map((service) => {
+              {state.services.filter(s => s.active).map((service) => {
                 const isSelected = selectedServices.some(s => s.id === service.id);
                 const isMaxReached = selectedServices.length >= 3 && !isSelected;
 

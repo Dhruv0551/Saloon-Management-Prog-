@@ -11,7 +11,6 @@ import {
   ArrowLeft,
   CheckCircle2,
   AlertCircle,
-  Phone,
   User,
   Zap,
   Info

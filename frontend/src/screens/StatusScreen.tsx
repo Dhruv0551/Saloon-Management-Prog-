@@ -5,14 +5,11 @@ import { ThemeCard } from '../components/ThemeCard';
 import { StatusBadge } from '../components/StatusBadge';
 import {
   ArrowLeft,
-  Clock,
   Sparkles,
   AlertCircle,
   Scissors,
   CheckCircle,
-  XCircle,
-  MapPin,
-  Volume2
+  XCircle
 } from 'lucide-react';
 
 export const StatusScreen: React.FC = () => {

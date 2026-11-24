@@ -1,4 +1,4 @@
-import { Barber, CustomerQueueEntry, SalonState, ServiceItem, QueueStatus, BarberId } from '../types/queue';
+import { Barber, CustomerQueueEntry, SalonState, ServiceItem, BarberId } from '../types/queue';
 
 export const INITIAL_SERVICES: ServiceItem[] = [
   {
